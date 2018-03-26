@@ -12,13 +12,13 @@ class ChatApp extends EventEmitter {
         this.title = title;
 
        
-        this.intervalId = setInterval(() => {
+        this._intervalId = setInterval(() => {
             this.emit('message', `${this.title}: ping-pong`);
         }, 1000);
     }
 
     close(){   
-        clearInterval(this.intervalId);
+        clearInterval(this._intervalId);
         this.emit('close');
         this.removeAllListeners();
     }
